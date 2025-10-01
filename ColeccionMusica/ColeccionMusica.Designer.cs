@@ -40,11 +40,12 @@ namespace ColeccionMusica
             this.rbtnVinilo = new System.Windows.Forms.RadioButton();
             this.btnIngresarAlbum = new System.Windows.Forms.Button();
             this.grdAlbums = new System.Windows.Forms.DataGridView();
+            this.colEditar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colEliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.colEditar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colEliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdAlbums)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -158,22 +159,38 @@ namespace ColeccionMusica
             // 
             this.grdAlbums.AllowUserToAddRows = false;
             this.grdAlbums.AllowUserToDeleteRows = false;
+            this.grdAlbums.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdAlbums.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.grdAlbums.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdAlbums.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grdAlbums.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colEditar,
             this.colEliminar});
-            this.grdAlbums.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grdAlbums.GridColor = System.Drawing.SystemColors.Control;
-            this.grdAlbums.Location = new System.Drawing.Point(0, 333);
+            this.grdAlbums.Location = new System.Drawing.Point(0, 268);
             this.grdAlbums.Name = "grdAlbums";
             this.grdAlbums.ReadOnly = true;
             this.grdAlbums.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grdAlbums.RowHeadersVisible = false;
-            this.grdAlbums.Size = new System.Drawing.Size(768, 230);
+            this.grdAlbums.Size = new System.Drawing.Size(768, 295);
             this.grdAlbums.TabIndex = 0;
             this.grdAlbums.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdAlbums_CellContentClick);
+            // 
+            // colEditar
+            // 
+            this.colEditar.HeaderText = "";
+            this.colEditar.Image = ((System.Drawing.Image)(resources.GetObject("colEditar.Image")));
+            this.colEditar.Name = "colEditar";
+            this.colEditar.ReadOnly = true;
+            // 
+            // colEliminar
+            // 
+            this.colEliminar.HeaderText = "";
+            this.colEliminar.Image = ((System.Drawing.Image)(resources.GetObject("colEliminar.Image")));
+            this.colEliminar.Name = "colEliminar";
+            this.colEliminar.ReadOnly = true;
             // 
             // btnEditar
             // 
@@ -207,6 +224,7 @@ namespace ColeccionMusica
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.rbtnCD);
             this.panel1.Controls.Add(this.lblNombreAlbum);
             this.panel1.Controls.Add(this.rbtnCDDoble);
@@ -218,31 +236,33 @@ namespace ColeccionMusica
             this.panel1.Controls.Add(this.rbtnCassette);
             this.panel1.Controls.Add(this.btnEditar);
             this.panel1.Controls.Add(this.btnIngresarAlbum);
-            this.panel1.Location = new System.Drawing.Point(1, 151);
+            this.panel1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.panel1.Location = new System.Drawing.Point(-31, 86);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(768, 190);
+            this.panel1.Size = new System.Drawing.Size(828, 190);
             this.panel1.TabIndex = 12;
             // 
-            // colEditar
+            // label1
             // 
-            this.colEditar.HeaderText = "";
-            this.colEditar.Image = ((System.Drawing.Image)(resources.GetObject("colEditar.Image")));
-            this.colEditar.Name = "colEditar";
-            this.colEditar.ReadOnly = true;
-            // 
-            // colEliminar
-            // 
-            this.colEliminar.HeaderText = "";
-            this.colEliminar.Image = ((System.Drawing.Image)(resources.GetObject("colEliminar.Image")));
-            this.colEliminar.Name = "colEliminar";
-            this.colEliminar.ReadOnly = true;
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("OpenSymbol", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(187, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(403, 46);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Coleccion de Musica";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // ColeccionMusica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(768, 563);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.grdAlbums);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -274,6 +294,7 @@ namespace ColeccionMusica
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewImageColumn colEditar;
         private System.Windows.Forms.DataGridViewImageColumn colEliminar;
+        private System.Windows.Forms.Label label1;
     }
 }
 

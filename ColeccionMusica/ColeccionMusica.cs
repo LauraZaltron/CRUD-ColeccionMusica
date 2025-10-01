@@ -44,7 +44,7 @@ namespace ColeccionMusica
             tipoMedio = "Vinilo";
         }
 
-        private void btnIngresarAlbum_Click(object sender, EventArgs e) //aca
+        private void btnIngresarAlbum_Click(object sender, EventArgs e) 
         {
             if (txtNombreAlbum.Text == "" || txtNombreArtista.Text == "" || tipoMedio == "")
             {
@@ -71,6 +71,9 @@ namespace ColeccionMusica
             {
                 MessageBox.Show("Ocurrio un problema al intentar ingresar el album", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            txtNombreAlbum.Clear();
+            txtNombreArtista.Clear();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -120,11 +123,13 @@ namespace ColeccionMusica
 
             if (e.RowIndex >=0 && e.ColumnIndex == 1)
             {
-                string selectedId = row.Cells["idAlbum"].Value.ToString();
-                bool resultado = dataAlbumService.DeleteAlbum(Convert.ToInt32(selectedId));
+                DialogResult dialogResult = MessageBox.Show("Seguro de eliminar el registro?", "Atencion", MessageBoxButtons.YesNo);
 
-                if (resultado)
+                if (dialogResult == DialogResult.Yes)
                 {
+                    string selectedId = row.Cells["idAlbum"].Value.ToString();
+                    bool resultado = dataAlbumService.DeleteAlbum(Convert.ToInt32(selectedId));
+
                     MessageBox.Show("Album eliminado correctamente.", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     GetAlbums();
                     txtNombreAlbum.Clear();
@@ -136,11 +141,12 @@ namespace ColeccionMusica
                 }
             }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             btnEditar.Visible = false;
             btnCancelar.Visible = false;
+            txtNombreAlbum.Clear();
+            txtNombreArtista.Clear();
         }
 
     }
